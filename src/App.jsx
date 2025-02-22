@@ -1,6 +1,3 @@
-import { Profiler, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -11,10 +8,13 @@ import PostDetails from './pages/PostDetails'
 import EditPost from './pages/EditPost'
 import Profile from './pages/Profile'
 import { Route, Routes } from 'react-router-dom'
+import UserContextProvider from './context/UserContext'
 
 function App() {
   return (
     <>
+    <UserContextProvider>
+      
     <Routes>
       <Route exact path='/' element={ <Home/> } />
       <Route exact path='/login' element={ <Login/> } />
@@ -27,6 +27,8 @@ function App() {
 
       
     </Routes>
+
+    </UserContextProvider>
     </>
   )
 }
