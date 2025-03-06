@@ -5,7 +5,7 @@ import { URL } from '../url'
 
 export const UserContext = createContext({})
 
-export default function UserContextProvider() {
+export default function UserContextProvider({children}) {
 const [user, setUser] = useState(null)
 
 useEffect(() => {
@@ -14,7 +14,7 @@ useEffect(() => {
 
 const getUser =async() => {
     try{
-        const res = await axios. get(URL+"/api/auth/refetch",{withCredentials: true})
+        const res = await axios.get(URL+"/api/auth/refetch",{withCredentials: true})
         setUser(res.data)
     }
 

@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import { Link, useLocation, useNavigation } from 'react-router-dom'
-import BsSearch from 'react-icons/bs'
-import FaBars from 'react-icons/fa'
+import React, { useContext, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { BsSearch } from 'react-icons/bs'
+import { FaBars } from 'react-icons/fa'
+import { UserContext } from '../context/UserContext'
 
 function Navbar() {
   const [prompt, setPrompt] = useState("")
   const [menu, setMenu] = useState(false)
-  const navigate = useNavigation()
+  const navigate = useNavigate()
   const path = useLocation().pathname
 
   const showMenu = ()=>{
