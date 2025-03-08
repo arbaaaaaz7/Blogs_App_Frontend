@@ -1,5 +1,6 @@
+
 import { Link, useNavigate } from "react-router-dom"
-import Footer from "../Components/Footer"
+import Footer from "../components/Footer"
 import { useContext, useState } from "react"
 import axios from "axios"
 import { URL } from "../url"
@@ -16,18 +17,19 @@ const Login = () => {
   const handleLogin=async()=>{
     try{
       // const res=await axios.post(URL+"/api/auth/login",{email,password},{withCredentials:true})
-      const res= await fetch("/api/auth/login",{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({ email: email, password: password })
-      })
+      const res= await axios.post(URL+"/api/auth/login",
+        {
+           email: email, 
+           password: password
+        },{
+       
+        withCredentials: true
+        
+      });
       // console.log(res.data)
-      if (res.ok) {
-        const data = await res.json(); // Extract JSON data
-        const cookies = res.headers.get('Set-Cookie');
+      if (res.status===200) {
+        const data = res.data // Extract JSON data
+        const cookies = res.headers.get('set-cookie');
         console.warn('Data:', data);
         console.warn('Cookies:', cookies);
         

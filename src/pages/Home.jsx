@@ -1,5 +1,5 @@
 import axios from "axios"
-import Footer from "../Components/Footer"
+import Footer from "../components/Footer"
 import HomePost from "../components/HomePost"
 import Navbar from "../components/Navbar"
 import { IF, URL } from "../url"

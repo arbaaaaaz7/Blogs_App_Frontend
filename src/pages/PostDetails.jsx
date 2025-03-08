@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom"
 import Comments from "../components/Comments"
-import Footer from "../Components/Footer"
+import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import {BiEdit} from 'react-icons/bi'
 import {MdDelete} from 'react-icons/md'
@@ -25,7 +25,7 @@ const PostDetails = () => {
 
   const fetchPost=async()=>{
     try{
-      const res= await axios.get("/api/posts/"+postId)
+      const res= await axios.get(URL+"/api/posts/"+postId)
       // console.log(res.data)
       setPost(res.data)
     }
@@ -37,7 +37,7 @@ const PostDetails = () => {
   const handleDeletePost=async ()=>{
 
     try{
-      const res=await axios.delete("/api/posts/"+postId,{withCredentials:true})
+      const res=await axios.delete(URL+"/api/posts/"+postId,{withCredentials:true})
       console.log(res.data)
       navigate("/")
     }
@@ -111,7 +111,7 @@ const PostDetails = () => {
 
         <div className="flex " >   <FcManager className=" text-2xl mr-2 " > </FcManager> By {post.username}</div>
        <div className="flex  space-x-2">
-       <p>{new Date(post.updatedAt).toString().slice(3,15)}</p>
+       <p>{new Date(post.updatedAt).toString()}</p>
        </div>
         </div>
         <div className=" w-[100%] flex flex-col justify-center   " >
